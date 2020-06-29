@@ -1,7 +1,7 @@
+import 'package:Homeful/Widgets/PopUpMenu.dart';
+import 'package:Homeful/screens/categories_screen/category_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:schwifty_app/Widgets/PopUpMenu.dart';
 
 class CatagoriesSliver extends StatelessWidget {
   @override
@@ -11,19 +11,17 @@ class CatagoriesSliver extends StatelessWidget {
           delegate: SliverChildListDelegate(List.generate(
         4,
         (index) => Card(
-          margin: EdgeInsets.only(top: 30.0),
-          shape:
-              UnderlineInputBorder(borderRadius: BorderRadius.circular(13.0)),
-          elevation: 16,
+          margin: EdgeInsets.only(top: 5.0),
+          elevation: 0.0,
           child: Column(children: <Widget>[
             Padding(
-              child: titleRow(index),
+              child: titleRow(index, context),
               padding: EdgeInsets.all(16.0),
             ),
             _ScrollableItems(),
-            Divider(
-              height: 20,
-            )
+            // Divider(
+            //   height: 20,
+            // ),
           ]),
         ),
       ))),
@@ -40,13 +38,14 @@ class element {
 }
 
 List<element> Catag = [
-  element(title: 'Books', icon: Icon(Icons.book)),
-  element(title: 'Movies', icon: Icon(Icons.movie)),
-  element(title: 'Funny videos', icon: Icon(Icons.video_label)),
-  element(title: 'Relaxing Music', icon: Icon(FontAwesomeIcons.music))
+  element(title: 'Sports', icon: Icon(Icons.directions_run)),
+  element(title: 'Meditation', icon: Icon(Icons.healing)),
+  element(title: 'Joy', icon: Icon(Icons.games)),
+  element(title: 'Education', icon: Icon(Icons.school)),
+  // element(title: 'Relaxing Music', icon: Icon(FontAwesomeIcons.music))
 ];
 
-Row titleRow(int index) => Row(
+Row titleRow(int index, BuildContext context) => Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
@@ -63,18 +62,24 @@ Row titleRow(int index) => Row(
               Icon(
                 Catag[index].icon.icon,
                 size: 35,
-                color: Colors.lightGreen,
+                color: Colors.teal,
               )
             ],
           ),
-          translation: Offset(0, -0.8),
+          translation: Offset(0, 0),
         ),
         FlatButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => CategoryScreen(),
+              ),
+            );
+          },
           child: Text(
             'View all',
             style: TextStyle(
-                color: Colors.blueAccent.shade100,
+                color: Colors.teal,
                 fontSize: 14,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.bold),
@@ -101,15 +106,19 @@ Stack _preView(int index) => Stack(
         ),
         Positioned(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Book Name'),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 13),
+                child: Text('Idea title'),
+              ),
               Divider(
                 color: Colors.lightGreen.shade50,
                 height: 3.0,
               ),
               Container(
-                width: 100,
-                height: 100,
+                width: 150,
+                height: 150,
                 margin: EdgeInsets.only(
                     bottom: 3.0, right: 8.0, left: 8.0, top: 5.0),
                 decoration: BoxDecoration(
@@ -128,28 +137,27 @@ Stack _preView(int index) => Stack(
 
 List<Image> _images = [
   Image(
-    image: AssetImage('assets/images/Books/download.jpg'),
+    image: AssetImage('assets/images/1.jpg'),
   ),
   Image(
-    image: AssetImage('assets/images/Books/download (1).jpg'),
+    image: AssetImage('assets/images/2.jpg'),
   ),
   Image(
-    image: AssetImage('assets/images/Books/download (2).jpg'),
+    image: AssetImage('assets/images/4.jpg'),
   ),
   Image(
-    image: AssetImage('assets/images/Books/download (3).jpg'),
+    image: AssetImage('assets/images/3.jpg'),
   ),
   Image(
-    image: AssetImage('assets/images/Books/download (4).jpg'),
+    image: AssetImage('assets/images/5.jpg'),
   ),
   Image(
-    image: AssetImage('assets/images/Books/download (5).jpg'),
+    image: AssetImage('assets/images/1.jpg'),
   ),
   Image(
-    image: AssetImage('assets/images/Books/download (6).jpg'),
+    image: AssetImage('assets/images/4.jpg'),
   ),
   Image(
-    image: AssetImage('assets/images/Books/download (7).jpg'),
+    image: AssetImage('assets/images/2.jpg'),
   ),
 ];
-

@@ -1,5 +1,6 @@
+import 'package:Homeful/screens/home_screen/Ingrediants.dart';
 import 'package:flutter/material.dart';
-import 'package:schwifty_app/pages/Ingrediants.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -18,23 +19,18 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             FlatButton(
               child: Text('Plan A'),
-              onPressed: (){
-                Navigator.push(context,MaterialPageRoute(
-                  builder: (context ) => Ingrediants()
-                ));
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Ingrediants()));
               },
             ),
             FlatButton(
               child: Text('Plan B'),
-              onPressed: (){
-
-              },
+              onPressed: () {},
             ),
             FlatButton(
               child: Text('Plan C'),
-              onPressed: (){
-
-              },
+              onPressed: () {},
             ),
           ],
         ),

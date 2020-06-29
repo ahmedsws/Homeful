@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class TheBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class TheBar extends StatelessWidget {
           ),
         ),
         background: Image(
-          image: AssetImage('assets/images/BDD69065_m.jpg'),
+          image: AssetImage('assets/images/2.jpg'),
           fit: BoxFit.cover,
         ),
       ),

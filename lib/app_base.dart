@@ -1,6 +1,6 @@
+import 'package:Homeful/screens/categories_screen/category_screen.dart';
+import 'package:Homeful/screens/home_screen/Ingrediants.dart';
 import 'package:flutter/material.dart';
-
-import 'screens/home_screen.dart';
 
 class AppBase extends StatelessWidget {
   const AppBase();
@@ -13,7 +13,7 @@ class AppBase extends StatelessWidget {
         primaryColor: Colors.white,
         accentColor: Colors.teal,
       ),
-      home: HomeScreen(),
+      home: Ingrediants(),
     );
   }
 }
